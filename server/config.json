@@ -1,0 +1,9 @@
+{
+  "rds_host": "",
+  "rds_port": "",
+  "rds_user": "",
+  "rds_password" : "",
+  "rds_db": "SWIFTIFY",
+  "server_host": "localhost",
+  "server_port":"8080"
+}
