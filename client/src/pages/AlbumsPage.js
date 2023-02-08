@@ -22,7 +22,7 @@ export default function AlbumsPage() {
   return (
     // TODO (TASK 22): replace the empty object {} in the Container's style property with flexFormat. Observe the change to the Albums page.
     // TODO (TASK 22): then uncomment the code to display the cover image and once again observe the change, i.e. what happens to the layout now that each album card has a fixed width?
-    <Container style={{}}>
+    <Container style={flexFormat}>
       {albums.map((album) =>
         <Box
           key={album.album_id}
@@ -30,12 +30,12 @@ export default function AlbumsPage() {
           m={2}
           style={{ background: 'white', borderRadius: '16px', border: '2px solid #000' }}
         >
-          {/*
+          {
           <img
             src={album.thumbnail_url}
             alt={`${album.title} album art`}
           />
-          */}
+          }
           <h4><NavLink to={`/albums/${album.album_id}`}>{album.title}</NavLink></h4>
         </Box>
       )}

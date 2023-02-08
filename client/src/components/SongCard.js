@@ -29,6 +29,14 @@ export default function SongCard({ songId, handleClose }) {
     //       .then(res => res.json())
     //       .then(resJson => set state variable with album data)
     //     })
+    fetch(`http://${config.server_host}:${config.server_port}/song/${songId}`)
+      .then(res => res.json())
+      .then(resJson => {
+        setSongData(resJson);
+        fetch(`http://${config.server_host}:${config.server_port}/album/${resJson.album_id}`)
+        .then(res => res.json())
+        .then(resJson => setAlbumData(resJson));
+      })
   }, []);
 
   const chartData = [
@@ -82,7 +90,12 @@ export default function SongCard({ songId, handleClose }) {
                   {/* TODO (TASK 21): display the same data as the bar chart using a radar chart */}
                   {/* Hint: refer to documentation at https://recharts.org/en-US/api/RadarChart */}
                   {/* Hint: note you can omit the <Legend /> element and only need one Radar element, as compared to the sample in the docs */}
-                  <div>Replace Me</div>
+                  <RadarChart data={chartData} outerRadius={90}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="name"/>
+                    <PolarRadiusAxis angle={30}/>
+                    <Radar dataKey="value" fillOpacity={0.6} fill="#8884d8"/>
+                  </RadarChart>
                 </ResponsiveContainer>
               )
           }
