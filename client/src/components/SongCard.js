@@ -87,9 +87,6 @@ export default function SongCard({ songId, handleClose }) {
                 </ResponsiveContainer>
               ) : (
                 <ResponsiveContainer height={250}>
-                  {/* TODO (TASK 21): display the same data as the bar chart using a radar chart */}
-                  {/* Hint: refer to documentation at https://recharts.org/en-US/api/RadarChart */}
-                  {/* Hint: note you can omit the <Legend /> element and only need one Radar element, as compared to the sample in the docs */}
                   <RadarChart data={chartData} outerRadius={90}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="name"/>
